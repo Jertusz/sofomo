@@ -1,0 +1,39 @@
+services:
+  postgres:
+    image: "postgres:13"
+    container_name: sofomo_db
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: sofomo
+      POSTGRES_PASSWORD: sofomo_postgres
+      POSTGRES_USER: sofomo
+    volumes:
+      - postgres:/var/lib/postgresql/data/
+
+  api:
+    container_name: sofomo_api
+    build: .
+    command: ["gunicorn", "-w", "2", "-b", "0.0.0.0:8010", "sofomo.wsgi"]
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    volumes:
+      - ./logs:/app/logs/
+    ports:
+      - 8010:8010
+    environment:
+      DJANGO_KEY: 'nb-=b1lif_low2c#w&!ly9($u68k$oamnv7u2mpu5!0%tmv+5)'
+      DB_NAME: sofomo
+      DB_TEST_NAME: sofomo_test
+      DB_USER: sofomo
+      DB_PASSWORD: sofomo_postgres
+      DB_PORT: 5432
+      DB_HOST: postgres
+      DEBUG: 'True'
+
+volumes:
+  postgres:
+
+networks:
+  default:
