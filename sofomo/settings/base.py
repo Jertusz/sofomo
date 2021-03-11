@@ -137,3 +137,6 @@ STATIC_ROOT = BASE_DIR / "static"
 STATIC_URL = "/static/"
 
 ASGI_APPLICATION = "sofomo.asgi.application"
+
+
+REMOTE_API_KEY = config("IPSTACK_KEY")

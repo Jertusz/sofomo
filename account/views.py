@@ -16,3 +16,5 @@ class RegisterUser(generics.GenericAPIView):
         user = serializer.save()
         serialized_user = UserSerializer(user)
         return Response({"user": serialized_user.data, "message": "User created, now you can login"}, status=status.HTTP_201_CREATED)
+
+

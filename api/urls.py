@@ -8,4 +8,5 @@ urlpatterns = [
     # path("cars/<int:pk>/", views.DeleteCar.as_view()),
     # path("rate/", views.AddRate.as_view()),
     # path("popular/", views.PopularCars.as_view()),
+    path("check/ip/", views.IPDetail.as_view()),
 ]
