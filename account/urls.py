@@ -7,8 +7,8 @@ from . import views
 
 urlpatterns = [
     path("register/", views.RegisterUser.as_view()),
-    path('login/', TokenObtainPairView.as_view()),
-    path('login/refresh/', TokenRefreshView.as_view()),
+    path("login/", TokenObtainPairView.as_view()),
+    path("login/refresh/", TokenRefreshView.as_view()),
     # path("cars/", views.CarDetails.as_view()),
     # path("cars/<int:pk>/", views.DeleteCar.as_view()),
     # path("rate/", views.AddRate.as_view()),

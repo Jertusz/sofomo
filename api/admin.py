@@ -1,3 +1,3 @@
-from django.contrib import admin
+# 3rd party
 
 # Register your models here.

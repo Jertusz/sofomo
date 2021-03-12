@@ -1,3 +1,4 @@
+# 3rd party
 from django.db import models
 
 
@@ -14,5 +15,3 @@ class IPAddress(models.Model):
     zip = models.CharField(max_length=15)
     latitude = models.FloatField(max_length=20)
     longitude = models.FloatField(max_length=20)
-
-
